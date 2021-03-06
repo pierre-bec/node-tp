@@ -9,6 +9,7 @@
     "jsonwebtoken": "^8.5.1",
     "nunjucks": "^3.2.2",
     "passport": "^0.4.1",
+    "passport-jwt": "*",
     "request": "^2.88.2"
   },
   "devDependencies": {
