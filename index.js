@@ -202,7 +202,7 @@ app.get('/article/:id', urlEncodedParser, passport.authenticate('jwt', {session:
         })
 });
 
-app.listen(3000, () => {
+app.listen(80, () => {
     console.log('running')
 })
 
