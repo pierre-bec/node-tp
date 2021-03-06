@@ -202,7 +202,9 @@ app.get('/article/:id', urlEncodedParser, passport.authenticate('jwt', {session:
         })
 });
 
-app.listen(3000, () => {
+var port = process.env.PORT || 3000;
+
+app.listen(port, () => {
     console.log('running')
 })
 
