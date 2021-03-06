@@ -204,11 +204,6 @@ app.get('/article/:id', urlEncodedParser, passport.authenticate('jwt', {session:
         })
 });
 
-app.get('/login', function (req, res) {
-    const html = nunjucks.render('login.html')
-    res.send(html);
-})
-
 app.listen(3000, () => {
     console.log('running')
 })
