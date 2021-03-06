@@ -5,13 +5,11 @@ const bodyParser = require('body-parser')
 const urlEncodedParser = bodyParser.urlencoded({extended: false})
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
-const passportJWT = require('passport-jwt')
 const request = require("request");
 const secret = 'thisisverysecret';
 
 
-const ExtractJwt = passportJWT.ExtractJwt
-const JwtStrategy = passportJWT.Strategy
+const JwtStrategy = require('passport-jwt').Strategy, ExtractJwt = require('passport-jwt').ExtractJwt;
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
