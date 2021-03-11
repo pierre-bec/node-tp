@@ -9,7 +9,6 @@ const request = require("request");
 const secret = 'thisisverysecret';
 const cors = require('cors');
 
-app.use(cors());
 
 
 const JwtStrategy = require('passport-jwt').Strategy, ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -35,6 +34,7 @@ const jwtStrategy = new JwtStrategy(jwtOptions, async function (payload, next) {
 passport.use("jwt", jwtStrategy)
 
 const app = express()
+app.use(cors());
 
 app.post('/login', urlEncodedParser, async function (req, res) {
     const email = req.body.email
