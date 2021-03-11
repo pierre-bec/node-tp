@@ -40,7 +40,7 @@ app.post('/login', urlEncodedParser, async function (req, res) {
     const email = req.body.email
     const password = req.body.password
     const users = await getUsers()
-    console.log(req);
+    console.log(req.body);
 
     if (!email || !password) {
         console.log("c'est ça");
