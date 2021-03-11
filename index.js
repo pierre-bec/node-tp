@@ -7,6 +7,9 @@ const jwt = require('jsonwebtoken')
 const passport = require('passport')
 const request = require("request");
 const secret = 'thisisverysecret';
+const cors = require('cors');
+
+app.use(cors());
 
 
 const JwtStrategy = require('passport-jwt').Strategy, ExtractJwt = require('passport-jwt').ExtractJwt;
