@@ -2,7 +2,7 @@ const axios = require('axios')
 const express = require('express')
 const nunjucks = require('nunjucks')
 const bodyParser = require('body-parser')
-const urlEncodedParser = bodyParser.urlencoded({extended: false})
+const urlEncodedParser = bodyParser.urlencoded({extended: true})
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
 const request = require("request");
@@ -115,7 +115,7 @@ app.post('/article', urlEncodedParser, passport.authenticate('jwt', {session: fa
         })
 });
 
-app.get('/articles', urlEncodedParser, passport.authenticate('jwt', {session: false}), async function (req, res) {
+app.get('/articles', urlEncodedParser/**, passport.authenticate('jwt'*/, {session: false}), async function (req, res) {
     axios({
         method: 'GET',
         url: 'https://projetnode-9cd4.restdb.io/rest/article',
