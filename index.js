@@ -37,28 +37,33 @@ const app = express()
 app.use(cors());
 
 app.post('/login', urlEncodedParser, async function (req, res) {
-    console.log("salut la team");
+    console.log("salut la team1");
     const email = req.body.email
     const password = req.body.password
     const users = await getUsers()
+    console.log("salut la team2");
 
     if (!email || !password) {
         res.status(401).json({error: 'Email or password was not provided'})
         return
     }
+    console.log("salut la team3");
 
     let user = users.data.find(
         (user) => user.email === email && user.password === password
     )
+    console.log("salut la team4");
 
     if (!user) {
         res.status(401).json({error: 'Email and password do not match'})
         return
     }
+    console.log("salut la team5");
 
     const userJwt = jwt.sign({user: user.email}, secret)
 
     res.json({jwt: userJwt})
+    console.log("salut la team6");
 })
 
 app.post('/register', urlEncodedParser, async function (req, res) {
