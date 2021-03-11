@@ -37,6 +37,7 @@ const app = express()
 app.use(cors());
 
 app.post('/login', urlEncodedParser, async function (req, res) {
+    console.log("salut la team");
     const email = req.body.email
     const password = req.body.password
     const users = await getUsers()
@@ -115,7 +116,7 @@ app.post('/article', urlEncodedParser, passport.authenticate('jwt', {session: fa
         })
 });
 
-app.get('/articles', urlEncodedParser/**, passport.authenticate('jwt', {session: false})*/, async function (req, res) {
+app.get('/articles', urlEncodedParser, passport.authenticate('jwt', {session: false}), async function (req, res) {
     axios({
         method: 'GET',
         url: 'https://projetnode-9cd4.restdb.io/rest/article',
